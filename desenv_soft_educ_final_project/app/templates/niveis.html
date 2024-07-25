@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões do Tempo - Níveis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body class="background">
+    <div class="container">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/Moeda.png') }}" alt="Moeda" class="coin-image">
+            <span class="coin-count">{{ total_score }}</span>
+        </div>
+        <div class="box">
+            <h2>Níveis</h2>
+            <div class="table-container">
+                <table class="levels-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Moedas</th>
+                            <th>Dificuldade</th>
+                            <th>Descrição</th>
+                            <th>Personagem Histórico</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for level in levels %}
+                        <tr>
+                            <td>{{ level.Name }}</td>
+                            <td>{{ level.UnlockScore__c }}</td>
+                            <td>{{ level.Difficulty__c }}</td>
+                            <td>{{ level.Description__c }}</td>
+                            <td>{{ level['Character__r.Name'] }}</td>
+                            <td>
+                                {% if level.unlocked %}
+                                <a href="{{ url_for('load_level', level_id=level.Id) }}" class="action-btn">Jogar</a>
+                                {% else %}
+                                <form action="{{ url_for('unlock_level_endpoint') }}" method="post" style="display:inline;">
+                                    <input type="hidden" name="level_id" value="{{ level.Id }}">
+                                    <input type="hidden" name="unlock_score" value="{{ level.UnlockScore__c | round }}">
+                                    <button type="submit" class="action-btn">Desbloquear</button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a href="{{ url_for('main') }}" class="small-back-btn">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

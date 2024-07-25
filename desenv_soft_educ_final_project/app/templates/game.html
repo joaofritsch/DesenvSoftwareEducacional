@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ level.Name }} - Guardiões do Tempo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body class="background">
+    <div class="container">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/Moeda.png') }}" alt="Moeda" class="coin-image">
+            <span class="coin-count">{{ total_score }}</span>
+        </div>
+        <div class="box">
+            <h2>{{ level.Name }}</h2>
+            <div id="timer">{{ time_setting }}</div>
+            <form method="POST" action="{{ url_for('process_question', level_id=level.Id) }}">
+                <div class="question" data-question-id="{{ current_question.Id }}">
+                    <p>{{ current_question.Text__c }}</p>
+                    <div class="options">
+                        {% for option in current_question.options %}
+                            <button type="submit" name="question_option_id" value="{{ option.Id }}">{{ option.Text__c }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <input type="hidden" name="start_time" value="{{ start_time }}">
+            </form>
+            <a href="{{ url_for('niveis') }}" class="small-back-btn">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

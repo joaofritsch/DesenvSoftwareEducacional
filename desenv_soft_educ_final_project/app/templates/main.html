@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões do Tempo - Tela Inicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body class="background">
+    <div class="container">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/Moeda.png') }}" alt="Moeda" class="coin-image">
+            <span class="coin-count">{{ total_score }}</span>
+        </div>
+        <div class="box">
+            <h2>Guardiões do Tempo</h2>
+            <div class="button-container">
+                <a href="{{ url_for('niveis') }}" class="main-btn">Níveis</a>
+                <a href="{{ url_for('customizacao') }}" class="main-btn">Customização</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

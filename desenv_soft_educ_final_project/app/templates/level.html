@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ level.Name }} - Guardiões do Tempo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body style="background-image: url('{{ level.ImageURL__c }}'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/Moeda.png') }}" alt="Moeda" class="coin-image">
+            <span class="coin-count">{{ total_score }}</span>
+        </div>
+        <div class="box">
+            <h2>{{ level.Name }}</h2>
+            <div class="dialog-container" id="dialog-container">
+                <img src="{{ character_image }}" alt="Character" class="character-image">
+                <div class="dialog-box">
+                    {% for dialog in dialogs %}
+                        <p>{{ dialog.Text__c }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <button id="start-btn">Começar</button>
+            <a href="{{ url_for('niveis') }}" class="small-back-btn">Voltar</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('start-btn').addEventListener('click', function() {
+            window.location.href = "{{ url_for('start_level', level_id=level.Id) }}";
+        });
+    </script>
+</body>
+</html>

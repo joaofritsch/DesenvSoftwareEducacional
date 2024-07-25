@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões do Tempo - Customização</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body class="background">
+    <div class="container">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/Moeda.png') }}" alt="Moeda" class="coin-image">
+            <span class="coin-count">{{ total_score }}</span>
+        </div>
+        <div class="box">
+            <h2>Customização</h2>
+            <div class="table-container">
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in customization_items %}
+                        <tr>
+                            <td><img src="{{ item.ImageURL__c }}" alt="{{ item.Name }}" class="item-image"></td>
+                            <td>{{ item.Name }}</td>
+                            <td>{{ item.Price__c }}</td>
+                            <td>
+                                <form action="{{ url_for('purchase_item_endpoint') }}" method="post" style="display:inline;">
+                                    <input type="hidden" name="item_id" value="{{ item.Id }}">
+                                    <input type="hidden" name="price" value="{{ item.Price__c | round }}">
+                                    <button type="submit" class="action-btn">Comprar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <h2>Inventário</h2>
+            <div class="table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in player_inventory %}
+                        <tr>
+                            <td><img src="{{ item.Item__r.ImageURL__c }}" alt="{{ item.Item__r.Name }}" class="item-image"></td>
+                            <td>{{ item.Item__r.Name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a href="{{ url_for('main') }}" class="small-back-btn">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+body.background {
+    background-image: url('../background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-family: 'DragonFableFont', serif;
+    font-size: 2.5em;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8b0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5c0000;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #8b0000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.flash-messages {
+    color: red;
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-btn {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'DragonFableFont', serif;
+}
+
+.main-btn:hover {
+    background-color: #5c0000;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-back-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'DragonFableFont', serif;
+    margin-top: 10px;
+}
+
+.small-back-btn:hover {
+    background-color: #5c0000;
+}
+
+.coin-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.coin-count {
+    font-size: 1.5em;
+    font-family: 'DragonFableFont', serif;
+}
+
+.levels-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.levels-table th, .levels-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.levels-table th {
+    background-color: #8b0000;
+    color: white;
+    font-family: 'DragonFableFont', serif;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'DragonFableFont', serif;
+}
+
+.action-btn:hover {
+    background-color: #5c0000;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.character-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.dialog-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.dialog-box p {
+    margin: 0 0 10px;
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
